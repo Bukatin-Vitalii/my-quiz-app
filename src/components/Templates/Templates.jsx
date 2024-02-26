@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 import { Grid } from '@mui/material';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Sidebar from '../Sidebar/Sidebar';
-import Quizzes from '../../pages/Quizzes/Quizzes';
-import { CustomizedButton } from './styled';
-import Toast from '../Toast/Toast';
+import { CustomizedButton, CustomizedWrapper } from './styled';
 
-const Templates = () => {
+const Templates = ({ handleInputChange }) => {
   const [sidebarHidden, setSidebarHidden] = useState(false);
-  const [error, setError] = useState(null);
-
-  const handleApiError = (error) => {
-    setError(error.message || error);
-  };
 
   const handleSidebarHidden = () => setSidebarHidden(!sidebarHidden);
 
@@ -24,7 +18,7 @@ const Templates = () => {
       </Grid>
       {sidebarHidden ? null : (
         <Grid item xs={3}>
-          <Sidebar />
+          <Sidebar handleInputChange={handleInputChange} />
         </Grid>
       )}
       <Grid item xs={sidebarHidden ? 12 : 9} style={{ position: 'relative' }}>
@@ -35,12 +29,13 @@ const Templates = () => {
         >
           <span> {'<'} </span>
         </CustomizedButton>
-        <Quizzes onApiError={handleApiError} />
+        <CustomizedWrapper>
+          <Outlet />
+        </CustomizedWrapper>
       </Grid>
       <Grid item xs={12}>
         <Footer />
       </Grid>
-      <Toast error={error} onClose={() => setError(null)} /> {/* Используем Toast вместо AutohideSnackbar */}
     </Grid>
   );
 };

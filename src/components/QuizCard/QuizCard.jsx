@@ -3,12 +3,14 @@ import {
   Card, CardContent, CardMedia, ThemeProvider, Typography,
 } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CustomizedCardActions } from './styled';
 import { gray } from '../../styled';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import QuizModal from '../QuizModal/QuizModal';
 
 const QuizCard = ({ quiz }) => {
+  const navigate = useNavigate();
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleOpenModal = () => setModalIsOpen(true);
@@ -16,8 +18,7 @@ const QuizCard = ({ quiz }) => {
 
   const handleStartQuiz = () => {
     handleCloseModal();
-    // eslint-disable-next-line no-alert
-    alert('Quiz started!');
+    navigate(`/quiz/${quiz.id}`);
   };
 
   return (

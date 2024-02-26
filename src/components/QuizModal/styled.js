@@ -16,12 +16,22 @@ export const QuizModalWrapper = styled.div`
 	gap: 20px;
 	align-items: center;
 	padding: 20px 10px;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		gap: 10px;
+	}
 `;
 
 export const QuizModalImage = styled.img`
 	width: 300px;
 	height: 300px;
 	object-fit: cover;
+
+	@media (max-width: 768px) {
+		width: 120px;
+		height: 120px;
+	}
 `;
 
 export const QuizModalContent = styled.div`
@@ -29,6 +39,10 @@ export const QuizModalContent = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	gap: 20px;
+
+	@media (max-width: 768px) {
+		gap: 10px;
+	}
 `;
 
 export const QuizModalTitle = styled.h2`
@@ -37,10 +51,18 @@ export const QuizModalTitle = styled.h2`
 	font-weight: bold;
 	color: #333;
 	text-align: center;
+
+	@media (max-width: 768px) {
+		font-size: 20px;
+	}
 `;
 
 export const QuizModalDescription = styled.p`
 	font-size: 18px;
 	color: #333;
 	text-align: justify;
+
+	@media (max-width: 768px) {
+		font-size: 14px;
+	}
 `;

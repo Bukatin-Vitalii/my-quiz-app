@@ -1,4 +1,6 @@
+import { CircularProgress } from '@mui/material';
 import { createTheme, alpha, getContrastRatio } from '@mui/material/styles';
+import styled from 'styled-components';
 
 const grayBase = '#1b1b1b';
 const grayMain = alpha(grayBase, 0.7);
@@ -13,3 +15,10 @@ export const gray = createTheme({
     },
   },
 });
+
+export const Loader = styled(CircularProgress)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;

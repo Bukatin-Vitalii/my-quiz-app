@@ -12,6 +12,13 @@ export const HeaderWrapper = styled.div`
 	}
 `;
 
+export const HeaderLogoGroup = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	cursor: pointer;
+`;
+
 export const HeaderContainer = styled.div`
 	max-width: 1540px;
 	width: 100%;
@@ -19,7 +26,6 @@ export const HeaderContainer = styled.div`
 	padding: 0 20px;
 	display: flex;
 	align-items: center;
-	gap: 20px;
 `;
 
 export const Title = styled.h2`
